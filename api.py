@@ -7,8 +7,12 @@ from requests.auth import HTTPBasicAuth
 
 from utils import get_file_id
 
-CLIENT_ID = st.secrets["CLIENT_ID"]
-SECRET = st.secrets["SECRET"]
+try:
+  CLIENT_ID = st.secrets["CLIENT_ID"]
+except KeyError:
+  st.error("CLIENT_ID not found in secrets. Please configure your secrets.")
+  st.stop() # Прекращение выполнения приложения, если секрет не найден
+
 
 
 def get_access_token() -> str:
