@@ -8,7 +8,7 @@ from requests.auth import HTTPBasicAuth
 from utils import get_file_id
 
 CLIENT_ID = st.secrets["CLIENT_ID"]
-SECRET = st.secret["SECRET"]
+SECRET = st.secrets["SECRET"]
 
 
 def get_access_token() -> str:
